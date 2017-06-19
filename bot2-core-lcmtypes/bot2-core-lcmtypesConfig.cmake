@@ -60,7 +60,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
 endif()
 
 find_dependency(lcm CONFIG HINTS "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/cmake/lcm")
-set(_expectedTargets bot2-core-lcmtypes::lcmtypes_bot2-core-cpp bot2-core-lcmtypes::lcmtypes_bot2-core-java)
+set(_expectedTargets lcmtypes_bot2-core-cpp lcmtypes_bot2-core-java)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -85,19 +85,19 @@ unset(_targetsDefined)
 unset(_targetsNotDefined)
 unset(_expectedTargets)
 
-add_library(bot2-core-lcmtypes::lcmtypes_bot2-core-cpp INTERFACE IMPORTED)
-set_target_properties(bot2-core-lcmtypes::lcmtypes_bot2-core-cpp PROPERTIES
+add_library(lcmtypes_bot2-core-cpp INTERFACE IMPORTED)
+set_target_properties(lcmtypes_bot2-core-cpp PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include/lcmtypes"
-  INTERFACE_LINK_LIBRARIES lcm::lcm-coretypes
+  INTERFACE_LINK_LIBRARIES lcm-coretypes
 )
 
-add_library(bot2-core-lcmtypes::lcmtypes_bot2-core-java STATIC IMPORTED)
-set_target_properties(bot2-core-lcmtypes::lcmtypes_bot2-core-java PROPERTIES
+add_library(lcmtypes_bot2-core-java STATIC IMPORTED)
+set_target_properties(lcmtypes_bot2-core-java PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/share/java/lcmtypes_bot2-core-java.jar"
   JAR_FILE "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/share/java/lcmtypes_bot2-core-java.jar"
 )
 
-set(bot2-core-lcmtypes_LIBRARIES "bot2-core-lcmtypes::lcmtypes_bot2-core-cpp")
+set(bot2-core-lcmtypes_LIBRARIES "lcmtypes_bot2-core-cpp")
 set(bot2-core-lcmtypes_INCLUDE_DIRS "")
 
 
