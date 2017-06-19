@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets ccd::ccd)
+set(_expectedTargets ccd)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(ccd_VERSION "2.0")
 
-add_library(ccd::ccd SHARED IMPORTED)
-set_target_properties(ccd::ccd PROPERTIES
+add_library(ccd SHARED IMPORTED)
+set_target_properties(ccd PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libccd.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(ccd_LIBRARIES "ccd::ccd")
+set(ccd_LIBRARIES "ccd")
 set(ccd_INCLUDE_DIRS "")
 
 

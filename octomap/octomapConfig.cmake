@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets octomap::octomap octomap::octomath)
+set(_expectedTargets octomap octomath)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,19 +86,19 @@ unset(_expectedTargets)
 
 set(octomap_VERSION "1.8.0")
 
-add_library(octomap::octomap SHARED IMPORTED)
-set_target_properties(octomap::octomap PROPERTIES
+add_library(octomap SHARED IMPORTED)
+set_target_properties(octomap PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/liboctomap.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-add_library(octomap::octomath SHARED IMPORTED)
-set_target_properties(octomap::octomath PROPERTIES
+add_library(octomath SHARED IMPORTED)
+set_target_properties(octomath PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/liboctomath.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(octomap_LIBRARIES "octomap::octomap;octomap::octomath")
+set(octomap_LIBRARIES "octomap;octomath")
 set(octomap_INCLUDE_DIRS "")
 
 

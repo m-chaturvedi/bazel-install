@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets NLopt::nlopt)
+set(_expectedTargets nlopt)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(NLopt_VERSION "2.5.0")
 
-add_library(NLopt::nlopt SHARED IMPORTED)
-set_target_properties(NLopt::nlopt PROPERTIES
+add_library(nlopt SHARED IMPORTED)
+set_target_properties(nlopt PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libnlopt.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include/nlopt"
 )
 
-set(NLopt_LIBRARIES "NLopt::nlopt")
+set(NLopt_LIBRARIES "nlopt")
 set(NLopt_INCLUDE_DIRS "")
 
 

@@ -62,7 +62,8 @@ endif()
 find_dependency(ccd 2.0 CONFIG HINTS "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/cmake/ccd")
 find_dependency(octomap 1.8.0 CONFIG HINTS "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/cmake/octomap")
 find_dependency(Eigen3 3.3.3 CONFIG HINTS "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/cmake/eigen3")
-set(_expectedTargets fcl::fcl)
+
+set(_expectedTargets fcl)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -89,14 +90,14 @@ unset(_expectedTargets)
 
 set(fcl_VERSION "0.6.0")
 
-add_library(fcl::fcl SHARED IMPORTED)
-set_target_properties(fcl::fcl PROPERTIES
+add_library(fcl SHARED IMPORTED)
+set_target_properties(fcl PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libfcl.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES ccd::ccd;Eigen3::Eigen;octomap::octomap
+  INTERFACE_LINK_LIBRARIES "ccd;Eigen3::Eigen;octomap;/home/chaturvedi/workspace/drake-distro/bazel-install/lib/liboctomath.so"
 )
 
-set(fcl_LIBRARIES "fcl::fcl")
+set(fcl_LIBRARIES "fcl")
 set(fcl_INCLUDE_DIRS "")
 
 
