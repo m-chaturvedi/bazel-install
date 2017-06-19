@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets ignition-math3::ignition-math3)
+set(_expectedTargets ignition-math3)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(ignition-math3_VERSION "3.2.0")
 
-add_library(ignition-math3::ignition-math3 SHARED IMPORTED)
-set_target_properties(ignition-math3::ignition-math3 PROPERTIES
+add_library(ignition-math3 SHARED IMPORTED)
+set_target_properties(ignition-math3 PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libignition_math.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(ignition-math3_LIBRARIES "ignition-math3::ignition-math3")
+set(ignition-math3_LIBRARIES "ignition-math3")
 set(ignition-math3_INCLUDE_DIRS "")
 
 

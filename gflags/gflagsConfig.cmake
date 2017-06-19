@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets gflags::gflags)
+set(_expectedTargets gflags)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(gflags_VERSION "2.2.0")
 
-add_library(gflags::gflags SHARED IMPORTED)
-set_target_properties(gflags::gflags PROPERTIES
+add_library(gflags SHARED IMPORTED)
+set_target_properties(gflags PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libgflags.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(gflags_LIBRARIES "gflags::gflags")
+set(gflags_LIBRARIES "gflags")
 set(gflags_INCLUDE_DIRS "")
 
 
