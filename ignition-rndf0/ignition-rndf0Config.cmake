@@ -60,7 +60,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
 endif()
 
 find_dependency(ignition-math3 3.2.0 CONFIG HINTS "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/cmake/ignition-math3")
-set(_expectedTargets ignition-rndf0::ignition-rndf0)
+set(_expectedTargets ignition-rndf0)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -87,13 +87,14 @@ unset(_expectedTargets)
 
 set(ignition-rndf0_VERSION "0.1.5")
 
-add_library(ignition-rndf0::ignition-rndf0 SHARED IMPORTED)
-set_target_properties(ignition-rndf0::ignition-rndf0 PROPERTIES
+add_library(ignition-rndf0 SHARED IMPORTED)
+set_target_properties(ignition-rndf0 PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libignition_rndf.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
+  INTERFACE_LINK_LIBRARIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libignition_math.so"
 )
 
-set(ignition-rndf0_LIBRARIES "ignition-rndf0::ignition-rndf0")
+set(ignition-rndf0_LIBRARIES "ignition-rndf0")
 set(ignition-rndf0_INCLUDE_DIRS "")
 
 

@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets yaml-cpp::yaml-cpp)
+set(_expectedTargets yaml-cpp)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(yaml-cpp_VERSION "0.5.5")
 
-add_library(yaml-cpp::yaml-cpp SHARED IMPORTED)
-set_target_properties(yaml-cpp::yaml-cpp PROPERTIES
+add_library(yaml-cpp SHARED IMPORTED)
+set_target_properties(yaml-cpp PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libyaml_cpp.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(yaml-cpp_LIBRARIES "yaml-cpp::yaml-cpp")
+set(yaml-cpp_LIBRARIES "yaml-cpp")
 set(yaml-cpp_INCLUDE_DIRS "")
 
 
