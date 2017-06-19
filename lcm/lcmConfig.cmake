@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets lcm::lcm-coretypes lcm::lcm lcm::lcm-java lcm::lcm-gen)
+set(_expectedTargets lcm-coretypes lcm lcm-java lcm-gen)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,29 +86,29 @@ unset(_expectedTargets)
 
 set(lcm_VERSION "1.3.95")
 
-add_library(lcm::lcm-coretypes INTERFACE IMPORTED)
-set_target_properties(lcm::lcm-coretypes PROPERTIES
+add_library(lcm-coretypes INTERFACE IMPORTED)
+set_target_properties(lcm-coretypes PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-add_library(lcm::lcm SHARED IMPORTED)
-set_target_properties(lcm::lcm PROPERTIES
+add_library(lcm SHARED IMPORTED)
+set_target_properties(lcm PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/liblcm.so"
-  INTERFACE_LINK_LIBRARIES lcm::lcm-coretypes
+  INTERFACE_LINK_LIBRARIES lcm-coretypes
 )
 
-add_library(lcm::lcm-java STATIC IMPORTED)
-set_target_properties(lcm::lcm-java PROPERTIES
+add_library(lcm-java STATIC IMPORTED)
+set_target_properties(lcm-java PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/share/java/lcm.jar"
   JAR_FILE "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/share/java/lcm.jar"
 )
 
-add_executable(lcm::lcm-gen IMPORTED)
-set_target_properties(lcm::lcm-gen PROPERTIES
+add_executable(lcm-gen IMPORTED)
+set_target_properties(lcm-gen PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/bin/lcm-gen"
 )
 
-set(lcm_LIBRARIES "lcm::lcm")
+set(lcm_LIBRARIES "lcm")
 set(lcm_INCLUDE_DIRS "")
 
 set(LCM_USE_FILE "${CMAKE_CURRENT_LIST_DIR}/lcmUtilities.cmake")
