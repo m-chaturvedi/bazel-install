@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets tinyobjloader::tinyobjloader)
+set(_expectedTargets tinyobjloader)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,13 +86,13 @@ unset(_expectedTargets)
 
 set(tinyobjloader_VERSION "1.0.4")
 
-add_library(tinyobjloader::tinyobjloader SHARED IMPORTED)
-set_target_properties(tinyobjloader::tinyobjloader PROPERTIES
+add_library(tinyobjloader SHARED IMPORTED)
+set_target_properties(tinyobjloader PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libtinyobjloader.so"
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include/tinyobjloader"
 )
 
-set(tinyobjloader_LIBRARIES "tinyobjloader::tinyobjloader")
+set(tinyobjloader_LIBRARIES "tinyobjloader")
 set(tinyobjloader_INCLUDE_DIRS "")
 
 
