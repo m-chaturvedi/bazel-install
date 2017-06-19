@@ -59,7 +59,7 @@ if(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX STREQUAL "/")
   set(${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX)
 endif()
 
-set(_expectedTargets fmt::fmt fmt::fmt-header-only)
+set(_expectedTargets fmt fmt-header-only)
 
 set(_targetsDefined)
 set(_targetsNotDefined)
@@ -86,18 +86,18 @@ unset(_expectedTargets)
 
 set(fmt_VERSION "3.0.1")
 
-add_library(fmt::fmt SHARED IMPORTED)
-set_target_properties(fmt::fmt PROPERTIES
+add_library(fmt SHARED IMPORTED)
+set_target_properties(fmt PROPERTIES
   IMPORTED_LOCATION "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/lib/libfmt.so"
-  INTERFACE_LINK_LIBRARIES fmt::fmt-header-only
+  INTERFACE_LINK_LIBRARIES fmt-header-only
 )
 
-add_library(fmt::fmt-header-only INTERFACE IMPORTED)
-set_target_properties(fmt::fmt-header-only PROPERTIES
+add_library(fmt-header-only INTERFACE IMPORTED)
+set_target_properties(fmt-header-only PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${${CMAKE_FIND_PACKAGE_NAME}_IMPORT_PREFIX}/include"
 )
 
-set(fmt_LIBRARIES "fmt::fmt")
+set(fmt_LIBRARIES "fmt")
 set(fmt_INCLUDE_DIRS "")
 
 
